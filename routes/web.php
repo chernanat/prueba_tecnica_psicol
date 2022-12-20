@@ -13,6 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::group(['prefix'=>'','controller'=>\App\Http\Controllers\UserController::class],function(){
+    Route::name('')->group(function(){
+        Route::get('/','login')->name('');
+        Route::get('/register','register')->name('');
+        Route::get('/register/teacher','registerTeacher')->name('');
+        Route::get('/register/student','registerStudent')->name('');
+        Route::get('/register/signature','registerSignature')->name('');
+        Route::post('/save','store')->name('');
+        Route::get('/home','index')->name('');
+        Route::get('/user/{person}','edit');
+        Route::post('/user/{person}','update');
+    });
+});
+
+Route::group(['prefix'=>'/sign','controller'=>\App\Http\Controllers\LoginController::class],function(){
+    Route::name('')->group(function(){
+        Route::post('/login','login')->name('');
+        Route::post('/logout','logout')->name('');
+    });
 });

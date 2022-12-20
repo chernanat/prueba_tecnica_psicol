@@ -2,7 +2,7 @@
     <section>
         <NavVue></NavVue>
         <section class="container">
-            <h2 class="mt-2 text-center">Register User</h2>
+            <h2 class="mt-2 text-center">Registro de Profesores</h2>
             <form class="mt-5" method="post" v-on:submit.prevent="save()">
                 <div>
                     <label class='form-label'>Nombre:</label>
@@ -28,9 +28,9 @@
 </template>
 
 <script>
-import Auth from '../helpers/auth';
-import NavVue from '../Layouts/Nav.vue';
-import FooterVue from '../Layouts/Footer.vue';
+import Auth from '../../helpers/auth';
+import NavVue from '../../Layouts/Nav.vue';
+import FooterVue from '../../Layouts/Footer.vue';
 
 export default {
     components:{
@@ -39,9 +39,7 @@ export default {
     },
     data(){
         return{
-            user:{
-                role: 'admin'
-            },
+            user:{},
             auth:{
                 user_id: ''
             }
@@ -72,9 +70,9 @@ export default {
         },
         validateLogin(){
             if(this.auth.user_id){
-                if(this.auth.user_id == Auth.data.id){
-                    window.location.href = "/home"
-                }   
+  
+            }else{
+                window.location.href = "/home"
             }
         }
 
