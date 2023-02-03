@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-        <title>RickAndMorty</title>
+        <title>Gestion de Asignaturas</title>
     </head>
     <main id="app">
         <body>

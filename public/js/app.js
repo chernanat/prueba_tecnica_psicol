@@ -25,11 +25,25 @@ __webpack_require__.r(__webpack_exports__);
     FooterVue: _Layouts_Footer_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      auth: {
+        user_id: ''
+      }
+    };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    _helpers_auth__WEBPACK_IMPORTED_MODULE_2__["default"].initialize();
+    this.auth.user_id = _helpers_auth__WEBPACK_IMPORTED_MODULE_2__["default"].data.id;
+    this.validateLogin();
+  },
   created: function created() {},
-  methods: {}
+  methods: {
+    validateLogin: function validateLogin() {
+      if (this.auth.user_id) {} else {
+        window.location.href = "/";
+      }
+    }
+  }
 });
 
 /***/ }),

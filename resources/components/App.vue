@@ -20,13 +20,26 @@ export default {
     },
     data(){
         return{
+            auth:{
+                user_id: ''
+            }
         }
     },
     mounted(){
+        Auth.initialize()
+        this.auth.user_id = Auth.data.id
+        this.validateLogin()
     },  
     created(){
     },
     methods:{
+        validateLogin(){
+            if(this.auth.user_id){
+                
+            }else{
+                window.location.href = "/"
+            }
+        }
     }
 }
 </script>
