@@ -10,40 +10,49 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('home');
     }
-    public function register(){
+    public function register()
+    {
         return view('register');
     }
-    public function registerTeacher(){
+    public function registerTeacher()
+    {
         return view('registerTeacher');
     }
-    public function registerStudent(){
+    public function registerStudent()
+    {
         return view('registerStudent');
     }
-    public function registerSignature(){
+    public function registerSignature()
+    {
         return view('registerSignature');
     }
-    public function login(){
+    public function login()
+    {
         return view('login');
     }
-    public function store(UserRequest $request){
+    public function store(UserRequest $request)
+    {
         $person = new User($request->all());
         $person->save();
         return response()->json([
-            'saved'=> true,
-            'person'=> $person
+            'saved' => true,
+            'person' => $person
         ]);
     }
-    public function edit(User $person){
-        return view('user',compact('person'));
+    public function edit(User $person)
+    {
+        return view('user', compact('person'));
     }
-    public function update(Request $request, User $user){
-        $user = User::where('id',$request['id']);
+    public function update(Request $request, User $user)
+    {
+        $user = User::where('id', $request['id']);
         $user->update($request->all());
         return response()->json([
-            'updated'=> true,
+            'updated' => true,
         ], 200);
     }
 }
