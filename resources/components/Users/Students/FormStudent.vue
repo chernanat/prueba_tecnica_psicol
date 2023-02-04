@@ -13,8 +13,20 @@
                     <input v-model="user.email" class='form-control' type="email">
                 </div>
                 <div>
-                    <label class='form-label'>Password:</label>
-                    <input v-model="user.password" class='form-control' type="password">
+                    <label class='form-label'>Addres:</label>
+                    <input v-model="user.address" class='form-control' type="text">
+                </div>
+                <div>
+                    <label class='form-label'>City:</label>
+                    <input v-model="user.city" class='form-control' type="text">
+                </div>
+                <div>
+                    <label class='form-label'>Phone:</label>
+                    <input v-model="user.phone" class='form-control' type="tel">
+                </div>
+                <div>
+                    <label class='form-label'>Semester:</label>
+                    <input v-model="user.semester" class='form-control' type="number">
                 </div>
                 <br>
                 <div class="d-grid gap-2 text-center">

@@ -31,6 +31,8 @@ Route::group(['prefix'=>'','controller'=>\App\Http\Controllers\UserController::c
     });
 });
 
+
+//to login and logout
 Route::group(['prefix'=>'/sign','controller'=>\App\Http\Controllers\LoginController::class],function(){
     Route::name('')->group(function(){
         Route::post('/login','login')->name('');

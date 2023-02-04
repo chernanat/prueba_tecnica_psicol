@@ -452,7 +452,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      user: {},
+      user: {
+        role: 'teacher'
+      },
       auth: {
         user_id: ''
       }
@@ -1121,24 +1123,90 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Password:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Addres:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.user.password,
-      expression: "user.password"
+      value: _vm.user.address,
+      expression: "user.address"
     }],
     staticClass: "form-control",
     attrs: {
-      type: "password"
+      type: "text"
     },
     domProps: {
-      value: _vm.user.password
+      value: _vm.user.address
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.user, "password", $event.target.value);
+        _vm.$set(_vm.user, "address", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("City:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.user.city,
+      expression: "user.city"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.user.city
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.user, "city", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Phone:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.user.phone,
+      expression: "user.phone"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "tel"
+    },
+    domProps: {
+      value: _vm.user.phone
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.user, "phone", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Semester:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.user.semester,
+      expression: "user.semester"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number"
+    },
+    domProps: {
+      value: _vm.user.semester
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.user, "semester", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("FooterVue")], 1);
@@ -1260,24 +1328,68 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Password:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Addres:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.user.password,
-      expression: "user.password"
+      value: _vm.user.address,
+      expression: "user.address"
     }],
     staticClass: "form-control",
     attrs: {
-      type: "password"
+      type: "text"
     },
     domProps: {
-      value: _vm.user.password
+      value: _vm.user.address
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.user, "password", $event.target.value);
+        _vm.$set(_vm.user, "address", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Phone:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.user.phone,
+      expression: "user.phone"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "tel"
+    },
+    domProps: {
+      value: _vm.user.phone
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.user, "phone", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("City:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.user.city,
+      expression: "user.city"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.user.city
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.user, "city", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("FooterVue")], 1);
