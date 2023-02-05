@@ -55,4 +55,8 @@ class UserController extends Controller
             'updated' => true,
         ], 200);
     }
+    public function getUsers(){
+        $users = User::where('role','!=','admin')->get();
+        return $users;
+    }
 }

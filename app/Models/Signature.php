@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Signature extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+        'credits',
+        'area',
+        'dependency'
+    ];
+    public $timestamps = false;
 }

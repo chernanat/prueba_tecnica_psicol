@@ -16,7 +16,7 @@ class SignatureController extends Controller
     {
         //
     }
-    public function store(SignatureController $request)
+    public function store(Request $request)
     {
         $signature = new Signature($request->all());
         $signature->save();

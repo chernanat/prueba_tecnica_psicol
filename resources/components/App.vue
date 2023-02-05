@@ -3,6 +3,17 @@
         <NavVue></NavVue>
         <section class="container">
             <h1>Reportes</h1>
+            <div v-for="user in users">
+                <div v-if="user.role == 'student'">
+                    <h3>Estudiante: {{ user.name }}</h3>
+                    <h3>Asignaturas:</h3>
+                    <h3>Profesores:</h3>
+                <tr class="table-primary">
+                    <td>{{user.name}}</td>
+                    <td>{{user.role}}</td>
+                </tr>
+                </div>
+            </div>
         </section>
         <FooterVue></FooterVue>
     </section>
@@ -22,7 +33,8 @@ export default {
         return{
             auth:{
                 user_id: ''
-            }
+            },
+            users:{}
         }
     },
     mounted(){
@@ -31,6 +43,7 @@ export default {
         this.validateLogin()
     },  
     created(){
+        this.getUsers();
     },
     methods:{
         validateLogin(){
@@ -39,6 +52,13 @@ export default {
             }else{
                 window.location.href = "/"
             }
+        },
+        getUsers(){
+            axios.get('/getusers').then(res=>{
+                this.users = res.data
+            }).catch(err=>{
+                console.log(err);
+            })
         }
     }
 }
