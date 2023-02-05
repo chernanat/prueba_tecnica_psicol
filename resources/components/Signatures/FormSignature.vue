@@ -6,15 +6,26 @@
             <form class="mt-5" method="post" v-on:submit.prevent="save()">
                 <div>
                     <label class='form-label'>Nombre:</label>
-                    <input v-model="user.name" class='form-control' type="text">
+                    <input v-model="signature.name" class='form-control' type="text">
                 </div>
                 <div>
-                    <label class='form-label'>Email:</label>
-                    <input v-model="user.email" class='form-control' type="email">
+                    <label class='form-label'>Descripcion:</label>
+                    <input v-model="signature.description" class='form-control' type="text">
                 </div>
                 <div>
-                    <label class='form-label'>Password:</label>
-                    <input v-model="user.password" class='form-control' type="password">
+                    <label class='form-label'>Creditos:</label>
+                    <input v-model="signature.credits" class='form-control' type="number">
+                </div>
+                <div>
+                    <label class='form-label'>Area de conocimiento:</label>
+                    <input v-model="signature.area" class='form-control' type="text">
+                </div>
+                <div>
+                    <label class="form-label" for="">Seleccione una opcion:</label>
+                    <select class="form-control" name="" id="" v-model="signature.dependency">
+                        <option value="electiva">Electiva</option>
+                        <option value="obligatoria">Obligatoria</option>
+                    </select>
                 </div>
                 <br>
                 <div class="d-grid gap-2 text-center">
@@ -39,7 +50,7 @@ export default {
     },
     data(){
         return{
-            user:{},
+            signature:{},
             auth:{
                 user_id: ''
             }
@@ -52,20 +63,14 @@ export default {
     },  
     methods:{
         save(){
-            axios.post('/save',this.user).then(res => {
-                console.log(this.user);
+            axios.post('/signature/save',this.signature).then(res => {
+                console.log(this.signature);
                 if(res.data.saved){
                     window.location.href = '/'
                 }
             }
             ).catch(err => {
-                console.log(err);
-                if(err.response.status == 422){
-                    Swal.fire('Ops!', err.response.data.message,'error')
-                }
-                if(err.response.status == 500){
-                    Swal.fire('Error!', 'This Email Already exists!','error')
-                }            
+                console.log(err);         
             });
         },
         validateLogin(){

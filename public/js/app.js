@@ -260,7 +260,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      user: {},
+      signature: {},
       auth: {
         user_id: ''
       }
@@ -274,19 +274,13 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     save: function save() {
       var _this = this;
-      axios.post('/save', this.user).then(function (res) {
-        console.log(_this.user);
+      axios.post('/signature/save', this.signature).then(function (res) {
+        console.log(_this.signature);
         if (res.data.saved) {
           window.location.href = '/';
         }
       })["catch"](function (err) {
         console.log(err);
-        if (err.response.status == 422) {
-          Swal.fire('Ops!', err.response.data.message, 'error');
-        }
-        if (err.response.status == 500) {
-          Swal.fire('Error!', 'This Email Already exists!', 'error');
-        }
       });
     },
     validateLogin: function validateLogin() {
@@ -944,67 +938,125 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.user.name,
-      expression: "user.name"
+      value: _vm.signature.name,
+      expression: "signature.name"
     }],
     staticClass: "form-control",
     attrs: {
       type: "text"
     },
     domProps: {
-      value: _vm.user.name
+      value: _vm.signature.name
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.user, "name", $event.target.value);
+        _vm.$set(_vm.signature, "name", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Email:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Descripcion:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.user.email,
-      expression: "user.email"
+      value: _vm.signature.description,
+      expression: "signature.description"
     }],
     staticClass: "form-control",
     attrs: {
-      type: "email"
+      type: "text"
     },
     domProps: {
-      value: _vm.user.email
+      value: _vm.signature.description
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.user, "email", $event.target.value);
+        _vm.$set(_vm.signature, "description", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Password:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Creditos:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.user.password,
-      expression: "user.password"
+      value: _vm.signature.credits,
+      expression: "signature.credits"
     }],
     staticClass: "form-control",
     attrs: {
-      type: "password"
+      type: "number"
     },
     domProps: {
-      value: _vm.user.password
+      value: _vm.signature.credits
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.user, "password", $event.target.value);
+        _vm.$set(_vm.signature, "credits", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("FooterVue")], 1);
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Area de conocimiento:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.signature.area,
+      expression: "signature.area"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.signature.area
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.signature, "area", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Seleccione una opcion:")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.signature.dependency,
+      expression: "signature.dependency"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "",
+      id: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.signature, "dependency", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "electiva"
+    }
+  }, [_vm._v("Electiva")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "obligatoria"
+    }
+  }, [_vm._v("Obligatoria")])])]), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("FooterVue")], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,

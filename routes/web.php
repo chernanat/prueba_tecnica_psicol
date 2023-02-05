@@ -31,6 +31,13 @@ Route::group(['prefix'=>'','controller'=>\App\Http\Controllers\UserController::c
     });
 });
 
+Route::group(['prefix'=>'/signature','controller'=> \App\Http\Controllers\SignatureController::class],function(){
+    Route::name('')->group(function(){
+        Route::post('/save','store')->name('');
+        Route::get('/edit/{signature}','edit');
+        Route::post('/edit/{signature}','update');
+    });
+});
 
 //to login and logout
 Route::group(['prefix'=>'/sign','controller'=>\App\Http\Controllers\LoginController::class],function(){
