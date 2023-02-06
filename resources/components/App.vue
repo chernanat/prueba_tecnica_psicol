@@ -8,10 +8,6 @@
                     <h3>Estudiante: {{ user.name }}</h3>
                     <h3>Asignaturas:</h3>
                     <h3>Profesores:</h3>
-                <tr class="table-primary">
-                    <td>{{user.name}}</td>
-                    <td>{{user.role}}</td>
-                </tr>
                 </div>
             </div>
         </section>

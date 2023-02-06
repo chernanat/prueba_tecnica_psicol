@@ -549,9 +549,7 @@ var render = function render() {
   return _c("section", [_c("NavVue"), _vm._v(" "), _c("section", {
     staticClass: "container"
   }, [_c("h1", [_vm._v("Reportes")]), _vm._v(" "), _vm._l(_vm.users, function (user) {
-    return _c("div", [user.role == "student" ? _c("div", [_c("h3", [_vm._v("Estudiante: " + _vm._s(user.name))]), _vm._v(" "), _c("h3", [_vm._v("Asignaturas:")]), _vm._v(" "), _c("h3", [_vm._v("Profesores:")]), _vm._v(" "), _c("tr", {
-      staticClass: "table-primary"
-    }, [_c("td", [_vm._v(_vm._s(user.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.role))])])]) : _vm._e()]);
+    return _c("div", [user.role == "student" ? _c("div", [_c("h3", [_vm._v("Estudiante: " + _vm._s(user.name))]), _vm._v(" "), _c("h3", [_vm._v("Asignaturas:")]), _vm._v(" "), _c("h3", [_vm._v("Profesores:")])]) : _vm._e()]);
   })], 2), _vm._v(" "), _c("FooterVue")], 1);
 };
 var staticRenderFns = [];
