@@ -565,6 +565,15 @@ __webpack_require__.r(__webpack_exports__);
       this.$nextTick(function () {
         $('#test').DataTable();
       });
+    },
+    edit: function edit() {},
+    update: function update() {},
+    del: function del(id) {
+      axios.get("/delete/".concat(id)).then(function (res) {
+        console.log(res.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   }
 });
@@ -1554,7 +1563,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("section", {
     staticClass: "container"
-  }, [_c("h2", [_vm._v("Editar/Eliminar Profesor")]), _vm._v(" "), _c("table", {
+  }, [_vm.teachers[0] ? _c("div", [_c("h2", [_vm._v("Editar/Eliminar Profesor")]), _vm._v(" "), _c("table", {
     staticClass: "table table-hover",
     attrs: {
       id: "test"
@@ -1586,7 +1595,7 @@ var render = function render() {
         }
       }
     })])]);
-  }), 0)])]);
+  }), 0)])]) : _vm._e()]);
 };
 var staticRenderFns = [function () {
   var _vm = this,

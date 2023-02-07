@@ -63,4 +63,13 @@ class UserController extends Controller
         $teachers = User::where('role','=','teacher')->get();
         return $teachers;
     }
+    public function delete($id)
+    {
+        // return $id;
+        $person = User::find($id);
+        $person->delete();
+        return response()->json([
+            'deleted'=> true,
+        ]);
+    }
 }

@@ -1,7 +1,8 @@
 import axios from 'axios';
 <template>
     <section class="container">
-        <h2>Editar/Eliminar Profesor</h2>
+        <div v-if="teachers[0]">
+            <h2>Editar/Eliminar Profesor</h2>
         <table class="table table-hover" id="test">
             <thead>
             <tr>
@@ -24,7 +25,8 @@ import axios from 'axios';
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table>    
+        </div>
     </section>
 </template>
 <script>
@@ -52,6 +54,19 @@ export default {
             this.$nextTick(()=>{
                 $('#test').DataTable()
             });
+        },
+        edit(){
+
+        },
+        update(){
+
+        },
+        del(id){
+            axios.get(`/delete/${id}`).then(res=>{
+                console.log(res.data);
+            }).catch(err=>{
+                console.log(err);
+            })
         }
     }
 }
