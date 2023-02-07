@@ -29,6 +29,7 @@ Route::group(['prefix'=>'','controller'=>\App\Http\Controllers\UserController::c
         Route::get('/user/{person}','edit');
         Route::post('/user/{person}','update');
         Route::get('/getusers','getUsers');
+        Route::get('/getteachers','getTeachers');
     });
 });
 

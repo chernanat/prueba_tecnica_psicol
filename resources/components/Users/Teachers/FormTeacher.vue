@@ -31,19 +31,16 @@
             </form>
         </section>
         <br>
-        <FooterVue></FooterVue>
     </section>
 </template>
 
 <script>
 import Auth from '../../helpers/auth';
 import NavVue from '../../Layouts/Nav.vue';
-import FooterVue from '../../Layouts/Footer.vue';
 
 export default {
     components:{
         NavVue,
-        FooterVue
     },
     data(){
         return{

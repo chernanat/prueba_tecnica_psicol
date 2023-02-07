@@ -59,4 +59,8 @@ class UserController extends Controller
         $users = User::where('role','!=','admin')->get();
         return $users;
     }
+    public function getTeachers(){
+        $teachers = User::where('role','=','teacher')->get();
+        return $teachers;
+    }
 }

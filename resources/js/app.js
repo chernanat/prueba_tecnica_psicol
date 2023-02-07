@@ -15,6 +15,7 @@ import FormStudent from '../components/Users/Students/FormStudent.vue'
 import IndexTeacher from '../components/Users/Teachers/IndexTeacher.vue'
 import IndexSignature from '../components/Signatures/IndexSignature.vue'
 import IndexStudent from '../components/Users/Students/IndexStudent.vue'
+import TableTeacher from '../components/Users/Teachers/TableTeacher.vue'
 
 
 // import los componentes
@@ -31,6 +32,7 @@ new Vue({
         FormStudent,
         IndexStudent,
         IndexSignature,
-        IndexTeacher
+        IndexTeacher,
+        TableTeacher
     }
 })
