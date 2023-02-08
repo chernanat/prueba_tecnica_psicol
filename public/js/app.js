@@ -1600,8 +1600,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("section", {
     staticClass: "container"
-  }, [_vm.teacher_edit ? _c("div", [_c("h2", [_vm._v("Edit teacher:  " + _vm._s(_vm.teacher_edit.name))]), _vm._v(" "), _c("form", {
-    staticClass: "mt-5",
+  }, [_vm.teacher_edit ? _c("div", [_c("h3", [_vm._v("Edit teacher:  " + _vm._s(_vm.teacher_edit.name))]), _vm._v(" "), _c("form", {
     attrs: {
       method: "post"
     },
@@ -1721,8 +1720,10 @@ var render = function render() {
         _vm.$set(_vm.teacher_edit, "city", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
-    staticClass: "btn btn-warning",
+  })]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+    staticClass: "d-grid gap-2 d-flex justify-content-center justify-content-center"
+  }, [_c("input", {
+    staticClass: "btn btn-success",
     attrs: {
       type: "submit",
       value: "Update!"
@@ -1732,18 +1733,18 @@ var render = function render() {
         return _vm.update();
       }
     }
-  })]), _vm._v(" "), _c("input", {
+  }), _vm._v(" "), _c("input", {
     staticClass: "btn btn-danger btn-delete",
     attrs: {
       type: "submit",
-      value: "Close"
+      value: "Cancel"
     },
     on: {
       click: function click($event) {
         return _vm.close();
       }
     }
-  })]) : _vm._e(), _vm._v(" "), _vm.teachers[0] ? _c("div", [_c("h2", [_vm._v("Editar/Eliminar Profesor")]), _vm._v(" "), _c("table", {
+  })])])]) : _vm._e(), _vm._v(" "), _vm.teachers[0] ? _c("div", [_c("h2", [_vm._v("Editar/Eliminar Profesor")]), _vm._v(" "), _c("table", {
     staticClass: "table table-hover",
     attrs: {
       id: "test"
