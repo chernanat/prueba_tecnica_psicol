@@ -591,12 +591,20 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    update: function update() {},
-    del: function del(id) {
+    update: function update(id) {
       var _this3 = this;
+      axios.post("/teacher/edit/".concat(id), this.teacher_edit).then(function (res) {
+        Swal.fire('Success!', 'Teacher Updated Succesfully!', 'success');
+        _this3.getTeachers();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    del: function del(id) {
+      var _this4 = this;
       axios.get("/delete/".concat(id)).then(function (res) {
         Swal.fire('Success!', 'Teacher Deleted Succesfully!', 'success');
-        _this3.getTeachers();
+        _this4.getTeachers();
       })["catch"](function (err) {
         console.log(err);
       });
@@ -1600,7 +1608,7 @@ var render = function render() {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
-        return _vm.update();
+        return _vm.update(_vm.teacher_edit.id);
       }
     }
   }, [_c("div", [_c("label", {

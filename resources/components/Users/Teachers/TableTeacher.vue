@@ -3,7 +3,7 @@ import axios from 'axios';
     <section class="container">
         <div v-if="teacher_edit">
             <h2>Edit teacher:  {{ teacher_edit.name }}</h2> 
-            <form class="mt-5" method="post" v-on:submit.prevent="update()">
+            <form class="mt-5" method="post" v-on:submit.prevent="update(teacher_edit.id)">
                 <div>
                     <label class='form-label'>Nombre:</label>
                     <input v-model="teacher_edit.name" class='form-control' type="text">
@@ -93,8 +93,13 @@ export default {
                 console.log(err);
             })
         },
-        update(){
-
+        update(id){
+            axios.post(`/teacher/edit/${id}`,this.teacher_edit).then(res=>{
+                Swal.fire('Success!', 'Teacher Updated Succesfully!','success')
+                this.getTeachers()
+            }).catch(err=>{
+                console.log(err);
+            })
         },
         del(id){
             axios.get(`/delete/${id}`).then(res=>{
