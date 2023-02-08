@@ -63,9 +63,10 @@ export default {
         save(){
             axios.post('/save',this.user).then(res => {
                 if(res.data.saved){
-                    this.getTeachers()
-                    Swal.fire('Success!', 'Teacher Saved Succesfully!','success')
+                    this.$parent.test();
                     this.user = {}
+                    Swal.fire('Success!', 'Teacher Saved Succesfully!','success')
+                    this.user.role = 'teacher'
                 }
             }
             ).catch(err => {

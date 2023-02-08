@@ -1,6 +1,34 @@
 import axios from 'axios';
 <template>
     <section class="container">
+        <div v-if="teacher_edit">
+            <h2>Edit teacher:  {{ teacher_edit.name }}</h2> 
+            <form class="mt-5" method="post" v-on:submit.prevent="update()">
+                <div>
+                    <label class='form-label'>Nombre:</label>
+                    <input v-model="teacher_edit.name" class='form-control' type="text">
+                </div>
+                <div>
+                    <label class='form-label'>Email:</label>
+                    <input v-model="teacher_edit.email" class='form-control' type="email">
+                </div>
+                <div>
+                    <label class='form-label'>Addres:</label>
+                    <input v-model="teacher_edit.address" class='form-control' type="text">
+                </div>
+                <div>
+                    <label class='form-label'>Phone:</label>
+                    <input v-model="teacher_edit.phone" class='form-control' type="tel">
+                </div>
+                <div>
+                    <label class='form-label'>City:</label>
+                    <input v-model="teacher_edit.city" class='form-control' type="text">
+                </div>
+                <br>
+                <input @click="update()" class="btn btn-warning " type="submit" value="Update!">
+            </form>
+            <input @click="close()" class="btn btn-danger btn-delete" type="submit" value="Close">
+        </div>
         <div v-if="teachers[0]">
             <h2>Editar/Eliminar Profesor</h2>
             <table class="table table-hover" id="test">
@@ -40,7 +68,8 @@ export default {
     },
     data(){
         return{
-            teachers: []
+            teachers: [],
+            teacher_edit: null
         }
       },
     methods:{
@@ -56,8 +85,13 @@ export default {
                 $('#test').DataTable()
             });
         },
-        edit(){
-
+        edit(id){
+            axios.get(`/teacher/edit/${id}`).then(res=>{
+                console.log(res.data);
+                this.teacher_edit = res.data
+            }).catch(err=>{
+                console.log(err);
+            })
         },
         update(){
 
@@ -69,6 +103,9 @@ export default {
             }).catch(err=>{
                 console.log(err);
             })
+        },
+        close(){
+            this.teacher_edit = null
         }
     }
 }
