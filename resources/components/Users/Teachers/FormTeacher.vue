@@ -37,10 +37,12 @@
 <script>
 import Auth from '../../helpers/auth';
 import NavVue from '../../Layouts/Nav.vue';
+import TableTeacher from './TableTeacher.vue';
 
 export default {
     components:{
         NavVue,
+        TableTeacher
     },
     data(){
         return{
@@ -60,9 +62,10 @@ export default {
     methods:{
         save(){
             axios.post('/save',this.user).then(res => {
-                console.log(this.user);
                 if(res.data.saved){
-                    window.location.href = '/'
+                    this.getTeachers()
+                    Swal.fire('Success!', 'Teacher Saved Succesfully!','success')
+                    this.user = {}
                 }
             }
             ).catch(err => {
@@ -77,12 +80,11 @@ export default {
         },
         validateLogin(){
             if(this.auth.user_id){
-  
+                
             }else{
                 window.location.href = "/home"
             }
         }
-
     }
 }
 </script>
