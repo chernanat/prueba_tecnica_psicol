@@ -63,6 +63,10 @@ class UserController extends Controller
         $teachers = User::where('role','=','teacher')->get();
         return $teachers;
     }
+    public function getStudents(){
+        $students = User::where('role','=','student')->get();
+        return $students;
+    }
     public function delete($id)
     {
         // return $id;

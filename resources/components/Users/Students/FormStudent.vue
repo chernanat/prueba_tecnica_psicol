@@ -35,7 +35,6 @@
             </form>
         </section>
         <br>
-        <FooterVue></FooterVue>
     </section>
 </template>
 

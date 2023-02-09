@@ -39,6 +39,8 @@
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Semester</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -48,6 +50,8 @@
                         <td>{{student.email}}</td>
                         <td>{{student.phone}}</td>
                         <td>{{student.address}}</td>
+                        <td>{{student.city}}</td>
+                        <td>{{student.semester}}</td>
                         <td>                  
                             <input @click="edit(student.id)" class="btn btn-warning " type="submit" value="Edit">
                             <input @click="del(student.id)" class="btn btn-danger btn-delete" type="submit" value="Delete">

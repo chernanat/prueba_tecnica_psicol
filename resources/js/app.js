@@ -16,7 +16,7 @@ import IndexTeacher from '../components/Users/Teachers/IndexTeacher.vue'
 import IndexSignature from '../components/Signatures/IndexSignature.vue'
 import IndexStudent from '../components/Users/Students/IndexStudent.vue'
 import TableTeacher from '../components/Users/Teachers/TableTeacher.vue'
-
+import TableStudent from '../components/Users/Students/TableStudent.vue'
 
 // import los componentes
 
@@ -33,6 +33,7 @@ new Vue({
         IndexStudent,
         IndexSignature,
         IndexTeacher,
-        TableTeacher
+        TableTeacher,
+        TableStudent
     }
 })

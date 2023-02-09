@@ -30,6 +30,7 @@ Route::group(['prefix'=>'','controller'=>\App\Http\Controllers\UserController::c
         Route::post('/user/{person}','update');
         Route::get('/getusers','getUsers');
         Route::get('/getteachers','getTeachers');
+        Route::get('/getstudents','getStudents');
         Route::get('/delete/{person}','delete');
         Route::get('/teacher/edit/{person}','edit');
         Route::post('/teacher/edit/{person}','update');

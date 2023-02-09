@@ -1,18 +1,20 @@
 <template>
     <section>
         <FormStudentVue></FormStudentVue>
+        <TableStudent></TableStudent>
+        <FooterVue></FooterVue>
     </section>
 </template>
 <script>
 import FooterVue from '../../Layouts/Footer.vue';
-import NavVue from '../../Layouts/Nav.vue';
 import FormStudentVue from './FormStudent.vue';
+import TableStudent from './TableStudent.vue';
 
 export default {
     components:{
-        NavVue,
         FooterVue,
-        FormStudentVue
+        FormStudentVue,
+        TableStudent
    },
    mounted(){
 
