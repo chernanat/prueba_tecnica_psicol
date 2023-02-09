@@ -23,9 +23,13 @@
                     <label class='form-label'>City:</label>
                     <input v-model="student_edit.city" class='form-control' type="text">
                 </div>
+                <div>
+                    <label class='form-label'>Semester:</label>
+                    <input v-model="student_edit.semester" class='form-control' type="text">
+                </div>
                 <br>
                 <div class="d-grid gap-2 d-flex justify-content-center justify-content-center">
-                    <input @click="update()" class="btn btn-success " type="submit" value="Update!">
+                    <input class="btn btn-success " type="submit" value="Update!">
                     <input @click="close()" class="btn btn-danger btn-delete" type="submit" value="Cancel">
                 </div>
             </form>

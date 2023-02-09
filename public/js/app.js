@@ -1608,6 +1608,28 @@ var render = function render() {
         _vm.$set(_vm.student_edit, "city", $event.target.value);
       }
     }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Semester:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.student_edit.semester,
+      expression: "student_edit.semester"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.student_edit.semester
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.student_edit, "semester", $event.target.value);
+      }
+    }
   })]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "d-grid gap-2 d-flex justify-content-center justify-content-center"
   }, [_c("input", {
@@ -1615,11 +1637,6 @@ var render = function render() {
     attrs: {
       type: "submit",
       value: "Update!"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.update();
-      }
     }
   }), _vm._v(" "), _c("input", {
     staticClass: "btn btn-danger btn-delete",

@@ -33,7 +33,9 @@ Route::group(['prefix'=>'','controller'=>\App\Http\Controllers\UserController::c
         Route::get('/getstudents','getStudents');
         Route::get('/delete/{person}','delete');
         Route::get('/teacher/edit/{person}','edit');
+        Route::get('/student/edit/{person}','edit');
         Route::post('/teacher/edit/{person}','update');
+        Route::post('/student/edit/{person}','update');
 
     });
 });
