@@ -476,9 +476,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.post('/save', this.user).then(function (res) {
         if (res.data.saved) {
+          Swal.fire('Success!', 'Teacher Saved Succesfully!', 'success');
           _this.$parent.test();
           _this.user = {};
-          Swal.fire('Success!', 'Teacher Saved Succesfully!', 'success');
           _this.user.role = 'teacher';
         }
       })["catch"](function (err) {
@@ -559,6 +559,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
+  created: function created() {},
   mounted: function mounted() {
     this.getTeachers();
   },
@@ -585,7 +586,6 @@ __webpack_require__.r(__webpack_exports__);
     edit: function edit(id) {
       var _this2 = this;
       axios.get("/teacher/edit/".concat(id)).then(function (res) {
-        console.log(res.data);
         _this2.teacher_edit = res.data;
       })["catch"](function (err) {
         console.log(err);
@@ -594,8 +594,8 @@ __webpack_require__.r(__webpack_exports__);
     update: function update(id) {
       var _this3 = this;
       axios.post("/teacher/edit/".concat(id), this.teacher_edit).then(function (res) {
-        Swal.fire('Success!', 'Teacher Updated Succesfully!', 'success');
         _this3.getTeachers();
+        Swal.fire('Success!', 'Teacher Updated Succesfully!', 'success');
       })["catch"](function (err) {
         console.log(err);
       });
@@ -1727,11 +1727,6 @@ var render = function render() {
     attrs: {
       type: "submit",
       value: "Update!"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.update();
-      }
     }
   }), _vm._v(" "), _c("input", {
     staticClass: "btn btn-danger btn-delete",

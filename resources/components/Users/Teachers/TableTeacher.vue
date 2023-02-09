@@ -25,7 +25,7 @@
                 </div>
                 <br>
                 <div class="d-grid gap-2 d-flex justify-content-center justify-content-center">
-                    <input @click="update()" class="btn btn-success " type="submit" value="Update!">
+                    <input class="btn btn-success " type="submit" value="Update!">
                     <input @click="close()" class="btn btn-danger btn-delete" type="submit" value="Cancel">
                 </div>
             </form>
@@ -64,6 +64,8 @@
 export default {
     components:{
    },
+   created(){
+   },
    mounted(){
         this.getTeachers()
     },
@@ -88,7 +90,6 @@ export default {
         },
         edit(id){
             axios.get(`/teacher/edit/${id}`).then(res=>{
-                console.log(res.data);
                 this.teacher_edit = res.data
             }).catch(err=>{
                 console.log(err);
@@ -96,8 +97,8 @@ export default {
         },
         update(id){
             axios.post(`/teacher/edit/${id}`,this.teacher_edit).then(res=>{
-                Swal.fire('Success!', 'Teacher Updated Succesfully!','success')
                 this.getTeachers()
+                Swal.fire('Success!', 'Teacher Updated Succesfully!','success')
             }).catch(err=>{
                 console.log(err);
             })
