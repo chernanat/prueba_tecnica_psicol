@@ -68,7 +68,10 @@ export default {
             axios.post('/save',this.user).then(res => {
                 console.log(this.user);
                 if(res.data.saved){
-                    window.location.href = '/'
+                    Swal.fire('Success!', 'Student Saved Succesfully!','success')
+                    this.$parent.test();
+                    this.user = {}
+                    this.user.role = 'student'
                 }
             }
             ).catch(err => {

@@ -380,7 +380,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/save', this.user).then(function (res) {
         console.log(_this.user);
         if (res.data.saved) {
-          window.location.href = '/';
+          Swal.fire('Success!', 'Student Saved Succesfully!', 'success');
+          _this.$parent.test();
+          _this.user = {};
+          _this.user.role = 'student';
         }
       })["catch"](function (err) {
         console.log(err);
@@ -427,9 +430,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {},
   data: function data() {
-    return {};
+    return {
+      load: true
+    };
   },
-  methods: {}
+  methods: {
+    test: function test() {
+      var _this = this;
+      this.load = false;
+      setTimeout(function () {
+        _this.load = true;
+      }, 100);
+    }
+  }
 });
 
 /***/ }),
@@ -1463,7 +1476,7 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("section", [_c("FormStudentVue"), _vm._v(" "), _c("TableStudent"), _vm._v(" "), _c("FooterVue")], 1);
+  return _c("section", [_c("FormStudentVue"), _vm._v(" "), _vm.load ? _c("TableStudent") : _vm._e(), _vm._v(" "), _c("FooterVue")], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;

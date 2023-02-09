@@ -1,7 +1,7 @@
 <template>
     <section>
         <FormStudentVue></FormStudentVue>
-        <TableStudent></TableStudent>
+        <TableStudent v-if='load'></TableStudent>
         <FooterVue></FooterVue>
     </section>
 </template>
@@ -21,11 +21,16 @@ export default {
     },
     data(){
         return{
-
+            load: true
           }
       },
     methods:{
-
+        test(){
+            this.load = false
+            setTimeout(() => {
+                this.load = true;
+            }, 100);
+        }
       }
 }
 </script>
