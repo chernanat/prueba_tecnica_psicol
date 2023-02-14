@@ -36,12 +36,31 @@ class UserController extends Controller
     }
     public function store(UserRequest $request)
     {
-        $person = new User($request->all());
-        $person->save();
-        return response()->json([
-            'saved' => true,
-            'person' => $person
-        ]);
+        // dd($request->role);
+        if ($request->role == 'student') {
+            dd(intval($request->semester));
+            if(intval($request->semester) > 0 && intval($request->semester < 12)){
+                $person = new User($request->all());
+                $person->save();
+                return response()->json([
+                    'saved' => true,
+                    'student' => $person
+                ]);
+            }else{
+                response()->json([
+                    'saved'=>false,
+                    'message'=> 'Invalid value for semester!'
+                ],402);
+            }
+        }else{
+            $person = new User($request->all());
+            $person->save();
+            return response()->json([
+                'saved' => true,
+                'person' => $person
+            ]);
+        }
+
     }
     public function edit(User $person)
     {
@@ -55,25 +74,27 @@ class UserController extends Controller
             'updated' => true,
         ], 200);
     }
-    public function getUsers(){
-        $users = User::where('role','!=','admin')->get();
+    public function getUsers()
+    {
+        $users = User::where('role', '!=', 'admin')->get();
         return $users;
     }
-    public function getTeachers(){
-        $teachers = User::where('role','=','teacher')->get();
+    public function getTeachers()
+    {
+        $teachers = User::where('role', '=', 'teacher')->get();
         return $teachers;
     }
-    public function getStudents(){
-        $students = User::where('role','=','student')->get();
+    public function getStudents()
+    {
+        $students = User::where('role', '=', 'student')->get();
         return $students;
     }
     public function delete($id)
     {
-        // return $id;
         $person = User::find($id);
         $person->delete();
         return response()->json([
-            'deleted'=> true,
+            'deleted' => true,
         ]);
     }
 }

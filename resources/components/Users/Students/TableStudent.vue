@@ -35,7 +35,7 @@
             </form>
         </div>
         <div v-if="students[0]">
-            <h2>Editar/Eliminar Student</h2>
+            <h2>Editar/Eliminar Estudiante</h2>
             <table class="table table-hover" id="test">
                 <thead>
                 <tr>

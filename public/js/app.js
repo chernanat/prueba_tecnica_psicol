@@ -1662,7 +1662,7 @@ var render = function render() {
         return _vm.close();
       }
     }
-  })])])]) : _vm._e(), _vm._v(" "), _vm.students[0] ? _c("div", [_c("h2", [_vm._v("Editar/Eliminar Student")]), _vm._v(" "), _c("table", {
+  })])])]) : _vm._e(), _vm._v(" "), _vm.students[0] ? _c("div", [_c("h2", [_vm._v("Editar/Eliminar Estudiante")]), _vm._v(" "), _c("table", {
     staticClass: "table table-hover",
     attrs: {
       id: "test"
