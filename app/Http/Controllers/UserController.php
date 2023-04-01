@@ -20,15 +20,15 @@ class UserController extends Controller
     }
     public function registerTeacher()
     {
-        return view('registerTeacher');
+        return view('registerteacher');
     }
     public function registerStudent()
     {
-        return view('registerStudent');
+        return view('registerstudent');
     }
     public function registerSignature()
     {
-        return view('registerSignature');
+        return view('registersignature');
     }
     public function login()
     {
